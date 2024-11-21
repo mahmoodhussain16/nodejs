@@ -2,8 +2,7 @@ const express=require("express")
 const users=require('./data.json')
 const fs=require('fs')
 const app=express()
-const port=8001;
-
+const port=8001; 
 
 //middleware - plugin
 app.use(express.urlencoded({extended:false}));
@@ -36,6 +35,7 @@ app.get('/users',(req,res)=>{
 //Rest Api
 
 app.get('/api/users',(req,res)=>{
+    
     res.setHeader('X-my-Name','Mahmood') 
     // ==custom Headers best practice with X append
 
@@ -66,7 +66,7 @@ app.post('/api/users',(req,res)=>{
     const body=req.body;
     users.push({id:users.length+1,...body});
     fs.writeFile('./data.json',JSON.stringify(users),(err,data)=>{
-        return res.json({status:"success",id:users.length})
+        return res.status(201).json({status:"success",id:users.length})
     })
 })
      // console.log("Body",body);
