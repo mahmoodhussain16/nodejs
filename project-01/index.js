@@ -1,8 +1,13 @@
 const express=require("express")
-
-const app=express()
-const port=8000;
 const users=require('./data.json')
+const fs=require('fs')
+const app=express()
+const port=8001;
+
+
+//middleware - plugin
+app.use(express.urlencoded({extended:false}));
+
 //routes
 
 app.get('/',(req,res)=>{
@@ -19,28 +24,45 @@ app.get('/users',(req,res)=>{
 //Rest Api
 
 app.get('/api/users',(req,res)=>{
-    res.json(users)
+    return res.json(users)
+    
 })
+
+
+
 app.route('/api/users/:id').get((req,res)=>{
     const id=Number(req.params.id);
     const user =users.find((user)=>user.id===id);
     return res.json(user)
 })
-.patch((req,res)=>{
-    //Edit user with Id
-    res.json({status:"pending"})
-})
+
+.patch((req, res) => {
+            return res.json({ status: 'success', user });
+        })
+    
 .delete((req,res)=>{
     //delete user with Id
     res.json({status:"pending"})
 });
 
+//post method with postman
+app.post('/api/users',(req,res)=>{
+    //create new user
+    const body=req.body;
+    users.push({id:users.length+1,...body});
+    fs.writeFile('./data.json',JSON.stringify(users),(err,data)=>{
+        return res.json({status:"success",id:users.length})
+    })
+})
+    
 
 
-// app.post('/api/users',(req,res)=>{
-//     //TODO create new user
-//     return res.json ({status:"pending"})
-// })
+  
+
+    // console.log("Body",body);
+   
+  
+
 
 // app.patch('/api/users/:id',(req,res)=>{
 //     //TODO edit user with ID
