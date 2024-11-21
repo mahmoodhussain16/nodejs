@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "first_name":"Mahmood",
+        "last_name":"Hussain",
+        "email":"mahmood92@gmail.com",
+        "job_title":"web Developer"
+    },
+    {
+        "id":2,
+        "first_name":"Talha",
+        "last_name":"Tariq",
+        "email":"talha92@gmail.com",
+        "job_title":"mufti"
+    } ,
+    {
+        "id":3,
+        "first_name":"Zia",
+        "last_name":"Rahman",
+        "email":"zia92@gmail.com",
+        "job_title":"mulana"
+    } ,
+    {
+        "id":4,
+        "first_name":"Hafeez",
+        "last_name":"Rahman",
+        "email":"hafeez92@gmail.com",
+        "job_title":"advisor"
+    }
+]
