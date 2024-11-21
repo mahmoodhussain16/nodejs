@@ -8,6 +8,18 @@ const port=8001;
 //middleware - plugin
 app.use(express.urlencoded({extended:false}));
 
+app.use((req, res, next)=>{
+    console.log("Hello from middleware 1");
+    // return res.json({mgs:"Hello from middleware 1"});
+     next();
+});
+app.use((req, res, next)=>{
+    console.log("Hello from middleware 2");
+    // return res.json({mgs:"Hello from middleware 1"});
+    //  return res.end("Hey")
+    next();
+});
+
 //routes
 
 app.get('/',(req,res)=>{
@@ -24,6 +36,9 @@ app.get('/users',(req,res)=>{
 //Rest Api
 
 app.get('/api/users',(req,res)=>{
+    res.setHeader('X-my-Name','Mahmood') 
+    // ==custom Headers best practice with X append
+
     return res.json(users)
     
 })
@@ -54,11 +69,7 @@ app.post('/api/users',(req,res)=>{
         return res.json({status:"success",id:users.length})
     })
 })
-    
-
-
-
-    // console.log("Body",body);
+     // console.log("Body",body);
    
   
 
