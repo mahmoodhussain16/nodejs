@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index"
+    "start": "node mongo.js"
   },
   "author": "Mahmood",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "express": "^4.21.1",
-    "mongoose": "^8.8.2",
-    "nodemon": "^3.1.7"
+    "mongoose": "^8.8.2"
   }
 }
