@@ -1,0 +1,8 @@
+::1 GET /
+::1 GET /api/users
+::1 POST /api/users
+::1 GET /api/users/67420e9b2efad57836c3fccd
+::1 PATCH /api/users/67420e9b2efad57836c3fccd
+::1 GET /api/users/67420e9b2efad57836c3fccd
+::1 DELETE /api/users/67420e9b2efad57836c3fccd
+::1 GET /api/users/

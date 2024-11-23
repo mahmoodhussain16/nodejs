@@ -11,11 +11,12 @@ const port=8001;
 connectMongoDb("mongodb://127.0.0.1:27017/data-app-1")
 
 //middleware - plugin
+app.use(express.json())
 app.use(express.urlencoded({extended:false}));
 app.use(logReqRes("log.txt"));
 
 //Routes
-app.use('/users',userRouter)
+app.use('/api/users',userRouter)
 
 //server
 app.listen(port,()=>{console.log(`Server started at port:${port}`)})
